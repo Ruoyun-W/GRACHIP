@@ -1,4 +1,4 @@
-### GRACHIP: A Cell-type-specific 3D genome architecture predictor with DNA sequences and genomic features
+# GRACHIP: A Cell-type-specific 3D genome architecture predictor with DNA sequences and genomic features
 
 This repository includes the code for GRACHIP, the Graph-based Chromatin Interaction Prediction model. With this model, you can obtain accurate chromatin architecture predictions with DNA sequences and genomic features. For additional information, refer to [our paper]().
 
@@ -74,7 +74,7 @@ if you prefer to use only 2 or 3 features to make prediction, leave the rest lin
 ### Other arguments
 
 | Argument               | Description                            | Default Value        | Required |
-|------------------------|----------------------------------------|----------------------|----------|
+|------------------|-------------------|------------------|------------------|
 | `--genomic_data_paths` | Paths to genomic files                 | `./data/bwlist.txt`  | No       |
 | `--output_path`        | Output directory                       | `./output`           | No       |
 | `--genome_path`        | Reference genome .fa path              | `./data/hg38.fa`     | No       |
