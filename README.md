@@ -49,7 +49,7 @@ Model Weights:\
 [Edge input](https://drive.google.com/file/d/1QJIcx7bzNpT5kCleLD05Rsgq0R4O2CAE/view?usp=drive_link) If your predictions involve a non-human specie, you should substitute the provided file with a .cool file at 10K resolution. For additional details, refer to the [cooler documentation](https://cooler.readthedocs.io/en/latest/index.html).\
 [Encoder](https://drive.google.com/file/d/1F9u87x0UfwjmGrxG-VK_0uQ3Mo3cIIs6/view?usp=drive_link)\
 [Test files for HFF](https://drive.google.com/file/d/1XtHakLFFjGC8a9WNhUXvYDPCB9E8HmaC/view?usp=drive_link)\
-[hg38 for test](https://drive.google.com/file/d/1-Gc0RAmpp0zGppF9r24XEBvF1gR9WIni/view?usp=drive_link). You may use your own genome .fasta file (index it first).\
+[hg38 for test](https://drive.google.com/file/d/1-Gc0RAmpp0zGppF9r24XEBvF1gR9WIni/view?usp=drive_link) You may use your own genome .fasta file (index it first).
 
 ### Use your own genomic data
 
@@ -74,7 +74,7 @@ if you prefer to use only 2 or 3 features to make prediction, leave the rest lin
 ### Other arguments
 
 | Argument               | Description                            | Default Value        | Required |
-|------------------|--------------------|------------------|------------------|
+|------------------------|----------------------------------------|----------------------|----------|
 | `--genomic_data_paths` | Paths to genomic files                 | `./data/bwlist.txt`  | No       |
 | `--output_path`        | Output directory                       | `./output`           | No       |
 | `--genome_path`        | Reference genome .fa path              | `./data/hg38.fa`     | No       |
