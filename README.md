@@ -7,7 +7,7 @@ This repository includes the code for GRACHIP, the Graph-based Chromatin Interac
 ### Install GRACHIP dependency
 
 ``` bash
-pip install pandas numpy argparse joblib matplotlib pyBigWig subprocess pyfaidx
+pip install pandas numpy argparse joblib matplotlib pyBigWig subprocess pyfaidx cooler
 ```
 
 #### Quick installation
@@ -46,12 +46,14 @@ Model Weights:\
 [ATAC+CTCF+H3K4me GRACHIP model](https://drive.google.com/file/d/1mGYFSjpV1r0_fUHuzeQPLZxSIAc4EeF0/view?usp=drive_link)
 
 [DNABERT model weight](https://drive.google.com/file/d/1BJjqb5Dl2lNMg2warsFQ0-Xvn1xxfFXC/view?usp=sharing)\
-[Edge input](https://drive.google.com/file/d/1QJIcx7bzNpT5kCleLD05Rsgq0R4O2CAE/view?usp=drive_link) If your predictions involve a non-human specie, you should substitute the provided file with a .cool file at 10K resolution. For additional details, refer to the [cooler documentation](https://cooler.readthedocs.io/en/latest/index.html).\
+[Edge input](https://drive.google.com/file/d/1QJIcx7bzNpT5kCleLD05Rsgq0R4O2CAE/view?usp=drive_link) This input is for human genome assembly hg38. If your predictions involve a different genome assembly, you should substitute the provided file with a .cool file at 10K resolution. For additional details, refer to the [cooler documentation](https://cooler.readthedocs.io/en/latest/index.html).\
 [Encoder](https://drive.google.com/file/d/1F9u87x0UfwjmGrxG-VK_0uQ3Mo3cIIs6/view?usp=drive_link)\
 [Test files for HFF](https://drive.google.com/file/d/1XtHakLFFjGC8a9WNhUXvYDPCB9E8HmaC/view?usp=drive_link)\
 [hg38 for test](https://drive.google.com/file/d/1-Gc0RAmpp0zGppF9r24XEBvF1gR9WIni/view?usp=drive_link) You may use your own genome .fasta file (index it first).
 
 ### Use your own genomic data
+
+We recommend using fold change over control bigwig files as input. For more information, please check the ENCODE pipeline for [ChIP-seq](https://www.encodeproject.org/chip-seq/transcription_factor/) and [ATAC-seq](https://www.encodeproject.org/atac-seq/). 
 
 In a text file, specify the path of your bigwig files, each line for a file. for example:
 
@@ -62,7 +64,7 @@ In a text file, specify the path of your bigwig files, each line for a file. for
     data/HFF/K27ac.bw
     data/HFF/K27me3.bw
 
-if you prefer to use only 2 or 3 features to make prediction, leave the rest lines with NA. But make sure you load the right model for your feature combinations. for example:
+if you prefer to use only 2 or 3 features to make prediction, leave the rest lines with NAs. But make sure you load the right model for your feature combinations. for example:
 
     data/HFF/ATAC.bw
     data/HFF/CTCF.bw
@@ -84,8 +86,15 @@ if you prefer to use only 2 or 3 features to make prediction, leave the rest lin
 | `--start`              | Start site for genomic data extraction | None                 | Yes      |
 | `--chrom`              | Target chromosome for analysis         | None                 | Yes      |
 | `--DNABERT`            | Path to the DNABERT model directory    | `./data/6-new-12w-0` | No       |
+| `--iterations`         | Number of iterations for prediction    | 10                   | No       |
 
 ## Prediction
+
+Clone the repo
+``` bash
+git clone https://github.com/Ruoyun-W/GRACHIP
+cd GRACHIP/ 
+```
 
 Run prediction.py file for predictions. A working example is as follows.
 
@@ -102,10 +111,14 @@ python prediction.py \
 
 If you use GRACHIP, please kindly cite our paper:
 
-    @article{ ,
-      title={ },
-      author={ },
-      journal={ },
-      year={ },
-      publisher={ }
-    }
+    @article {Wang2024.05.21.595047,
+	author = {Wang, Ruoyun and Ma, Weicheng and Mohammadi, Aryan Soltani and Shahsavari, Saba and Vosoughi, Soroush and Wang, Xiaofeng},
+	title = {Improving Cell-type-specific 3D Genome Architectures Prediction Leveraging Graph Neural Networks},
+	elocation-id = {2024.05.21.595047},
+	year = {2024},
+	doi = {10.1101/2024.05.21.595047},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2024/05/21/2024.05.21.595047},
+	eprint = {https://www.biorxiv.org/content/early/2024/05/21/2024.05.21.595047.full.pdf},
+	journal = {bioRxiv}
+

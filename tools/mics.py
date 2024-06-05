@@ -37,7 +37,7 @@ def predict(model_path, data, device, save_path=None):
     samplesize = 200 
     
     # Load the trained model from disk
-    model = torch.load(model_path)
+    model = torch.load(model_path,map_location=torch.device(device))
     model.to(device)
     model.eval()  # Set the model to evaluation mode
 

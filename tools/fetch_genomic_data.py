@@ -59,6 +59,7 @@ def fetch_genomic_data(genomic_data_paths, df_regions):
         bw_paths = [line.strip() for line in file]
 
     # Loop over each BigWig file to extract genomic data
+    ind=0
     for bw_file in bw_paths:
         if bw_file and bw_file.upper() != 'NA':  # Check if the file path is valid and not 'NA'
             try:
@@ -70,6 +71,8 @@ def fetch_genomic_data(genomic_data_paths, df_regions):
                 df_genomic[bw_file] = 0  # Fill with zeros in case of failure to read the file
         else:
             # Fill the column with zeros if the file path is 'NA' or invalid
+            bw_file=bw_file+str(ind)
+            ind+=1
             df_genomic[bw_file] = 0
 
     return df_genomic

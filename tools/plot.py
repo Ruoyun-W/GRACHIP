@@ -43,4 +43,4 @@ def plot(image_data,text=None,y=None, cmap=plt.cm.colors.ListedColormap(white_to
         plt.savefig(save_path)
 
     # Show the plot
-    plt.show()
+    # plt.show()
