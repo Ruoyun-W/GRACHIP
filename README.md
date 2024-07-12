@@ -7,8 +7,26 @@ This repository includes the code for GRACHIP, the Graph-based Chromatin Interac
 ### Install GRACHIP dependency
 
 ``` bash
-pip install pandas numpy argparse joblib matplotlib pyBigWig subprocess pyfaidx cooler
+pip install pandas numpy argparse joblib matplotlib pyBigWig pyfaidx cooler
 ```
+Our versions: 
+
+pandas==2.0.2
+
+numpy==1.24.3
+
+argparse==1.1
+
+joblib==1.2.0
+
+matplotlib==3.7.1
+
+pyBigWig==0.3.18
+
+pyfaidx==0.8.1.1
+
+cooler==0.10.2
+
 
 #### Quick installation
 
@@ -20,6 +38,13 @@ Install via Anaconda
 Install via pip
 
     pip install torch torch_geometric
+
+our versions:
+
+torch==2.0.0+cu117
+
+torch_geometric==2.3.1
+
 
 #### Install PyTorch based on your environment
 
